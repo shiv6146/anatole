@@ -37,12 +37,17 @@
           >
             <h2>{{ .name | markdownify }}</h2>
             <ul class="portfolio__meta">
-              {{ if .status }}
+              {{- if .status -}}
                 <li class="portfolio__meta-item">
                   <em class="fas fa-flag-checkered"></em>
                   <span>{{ .status }}</span>
                 </li>
-              {{ end }}
+              {{- else -}}
+                <li class="portfolio__meta-item">
+                  <em class="fas fa-spinner"></em>
+                  <span>Ongoing</span>
+                </li>
+              {{- end -}}
               {{ if .venue }}
                 <li class="portfolio__meta-item">
                   <em class="fas fa-map-marker-alt"></em>
